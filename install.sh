@@ -168,7 +168,7 @@ download() {
         is_ok=$is_core_ok
         ;;
     sh)
-        link=https://github.com/cang/beauty/releases/latest/download/code.zip
+        link=https://github.com/wxcang/beauty/releases/latest/download/code.zip
         name="$is_core_name 脚本"
         tmpfile=$tmpsh
         is_ok=$is_sh_ok
