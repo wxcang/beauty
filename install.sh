@@ -157,17 +157,17 @@ install_pkg() {
     fi
 }
 
-# download file
 download() {
     case $1 in
     core)
-        link=https://github.com/wxcang/beauty/releases/latest/download/v2ray-linux-64.zip
+        # 👉 完全写死（不再拼接架构）
+        link=https://cdn.jsdelivr.net/gh/wxcang/Xray@main/Xray-linux-64.zip
         name=$is_core_name
         tmpfile=$tmpcore
         is_ok=$is_core_ok
         ;;
     sh)
-        link=https://github.com/wxcang/beauty/releases/latest/download/code.zip
+        link=https://cdn.jsdelivr.net/gh/wxcang/Xray@main/code.zip
         name="$is_core_name 脚本"
         tmpfile=$tmpsh
         is_ok=$is_sh_ok
@@ -183,6 +183,8 @@ download() {
     msg warn "下载 ${name} > ${link}"
     if _wget -t 3 -q -c $link -O $tmpfile; then
         mv -f $tmpfile $is_ok
+    else
+        msg err "下载失败: $link"
     fi
 }
 
